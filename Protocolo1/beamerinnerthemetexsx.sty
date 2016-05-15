@@ -1,0 +1,94 @@
+\mode<presentation>
+
+%--------------------------------------------------------------------------------------------------
+%                        Diseño de diapositivas
+%--------------------------------------------------------------------------------------------------
+\setbeamertemplate{background}{
+  %Ambiente de creación de figuras
+  \begin{tikzpicture}
+  %Diseño para la slide del título
+  %Caja de límites
+  \useasboundingbox (0,1) rectangle(\the\paperwidth,\the\paperheight);
+  %\fill[color=dmgrey] (0,3.5) rectangle (\the\paperwidth,\the\paperheight);
+  %Rectángulos de colores.
+  %llenar [color] (primer punto) figura (último punto)
+  \fill[color=dmturq] (0.0,0.2) rectangle (3,0.85);
+  \fill[color=dmaqua] (3.05,0.2) rectangle (\the\paperwidth,0.85);
+  %Diseño de slides
+  \ifnum\thepage>1\relax%
+   \fill[white,opacity=1] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+   \fi
+  \end{tikzpicture}
+}
+
+%--------------------------------------------------------------------------------------------------
+%            		    Programación de los objetos de lista
+%--------------------------------------------------------------------------------------------------
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+%--------------------------------------------------------------------------------------------------
+
+
+
+%--------------------------------------------------------------------------------------------------
+%             			   Página del título
+%--------------------------------------------------------------------------------------------------
+\defbeamertemplate*{title page}{texsx}[1][]
+{
+
+%--------------------------------------------------------------------------------------------------
+%				Imágen de fondo
+%--------------------------------------------------------------------------------------------------
+\begin{tikzpicture}
+  \node[opacity=.45,overlay]{ %3,7 también se ve chido
+  \includegraphics[height=2.3\paperheight,keepaspectratio]{rsrcs/backg.png}};
+\end{tikzpicture}
+
+%Logos en las esquinas
+\begin{picture}(18,4)
+  \setlength{\unitlength}{1cm}
+  \put(-0.5,-1){\includegraphics[height=1.9cm]{rsrcs/logo-ipi.png}}
+  \put(9.0,-1){\includegraphics[height=1.9cm]{rsrcs/logo-materiales.png}}
+\end{picture}
+%salto vertical
+\vskip1.3cm%
+
+
+%Texto del título
+\begin{beamercolorbox}[wd=12cm,leftskip=1cm,sep=8pt,#1]{title page header}
+  \centering{
+    {\color{dmgrey}
+      {\large {\bf{\inserttitle \vskip.3cm}}}
+    1er avance doctoral \vskip.3cm
+    P R E S E N T A \vskip.3cm
+    {\bf \insertauthor} \vskip .3cm
+    Asesor \vskip .3cm
+    {\bf Dr. Haret C. Rosu} \vskip .3cm
+    %Bajo la dirección de \vskip .3cm
+    %{\bf Dr. Isaac Rodríguez V. y Dr. Jaime R. Suárez L.} 
+    \vskip.8cm
+    }
+    
+  }
+\end{beamercolorbox}
+\vskip.2 cm
+
+
+%Texto Universidad
+\begin{beamercolorbox}[wd=15cm,leftskip=3.5cm,#1]{author}
+  \usebeamerfont{author} IPICYT - DMAv
+\end{beamercolorbox}
+\vskip-0.5cm
+
+
+%Fecha
+\hskip-3.1cm
+\begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
+  \usebeamerfont{author}Mayo 2016%
+\end{beamercolorbox}
+\vfill
+}
+%--------------------------------------------------------------------------------------------------
+
+\mode
+<all>

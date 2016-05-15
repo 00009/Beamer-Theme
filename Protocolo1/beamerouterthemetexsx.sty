@@ -1,0 +1,44 @@
+\mode<presentation>
+
+%En este archivo se configuran los bordes superior e inferior de las diapositivas.
+%--------------------------------------------------------------------------------------------------
+% 			Diseño de las diapositivas
+%--------------------------------------------------------------------------------------------------
+\defbeamertemplate*{frametitle}{texsx}[1][]
+{
+
+%--------------------------------------------------------------------------------------------------
+%			Imagen de Fondo
+%--------------------------------------------------------------------------------------------------
+\begin{tikzpicture}
+%Scope = posicionadores de imagen.
+%  \begin{scope}[shift={(1,-7)}]
+  \node[opacity=1.0,overlay] 
+  {\includegraphics[height=1.9\paperheight]{rsrcs/blackb.jpg}};
+%  \end{scope}
+\end{tikzpicture}
+
+%--------------------------------------------------------------------------------------------------
+%			Cajas de color y posición de títulos
+%--------------------------------------------------------------------------------------------------
+%orange
+%blue!50!cyan!80
+\begin{beamercolorbox}[wd=\paperwidth,ht=0cm]{frametitle}
+  \begin{tikzpicture}
+    %caja de límites
+    \useasboundingbox(0,0) rectangle(\the\paperwidth,\the\paperheight);
+    %llenado de color
+    \fill[choran] (0.0,0.55) rectangle (\paperwidth,1.07);    
+    \fill[chblue] (0.0\paperwidth,0.5) rectangle (0.7\paperwidth,0.05);
+    %posicionadores de texto
+    \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, white,font=\large] at (3.2,0.61){\insertframetitle};} % at (3.2,0.61)
+    \else%
+      {\node[anchor= west, pbbl,font=\Large] at (0.01\paperwidth,0.77){\insertframetitle};% at (3.2,0.81)
+       \node[anchor= west, pbbl,font=\large] at (0.07\paperwidth,0.25){\insertframesubtitle};}% at (3.2,0.41)
+    \fi
+  \end{tikzpicture}
+\end{beamercolorbox}
+}
+
+\mode<all>
